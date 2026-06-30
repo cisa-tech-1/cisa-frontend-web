@@ -1,6 +1,6 @@
 import { SectionBadge } from "@/components/about";
 import { ProgramVideoPlayer } from "@/components/programs/ProgramVideoPlayer";
-import { ABOUT_VIDEO_SRC, STORY_SECTION } from "@/lib/about";
+import { ABOUT_VIDEO_LABEL, ABOUT_VIDEO_SRC, STORY_SECTION } from "@/lib/about";
 
 export function AboutStorySection() {
   return (
@@ -9,21 +9,33 @@ export function AboutStorySection() {
         <div className="flex w-full min-w-[280px] max-w-[595px] flex-1 flex-col gap-8">
           <div className="flex flex-col gap-3">
             <SectionBadge>{STORY_SECTION.badge}</SectionBadge>
-            <h2 className="font-[family-name:var(--font-bricolage)] text-[30px] font-semibold leading-[38px] text-[#181D27]">
-              The Story of <span className="text-[#F87C22]">Chess</span>
-            </h2>
+
+            <blockquote className="font-[family-name:var(--font-bricolage)] text-[30px] font-semibold leading-[38px] text-[#181D27]">
+              &ldquo;{STORY_SECTION.quote}&rdquo;
+            </blockquote>
+
             <p className="font-[family-name:var(--font-manrope)] text-base font-medium leading-6 text-[#414651]">
-              {STORY_SECTION.intro}
+              {STORY_SECTION.attribution}
             </p>
           </div>
 
-          <div className="whitespace-pre-line font-[family-name:var(--font-manrope)] text-lg font-medium leading-7 text-[#535862]">
-            {STORY_SECTION.body}
+          <div className="flex flex-col gap-3">
+            <h2 className="font-[family-name:var(--font-manrope)] text-[30px] font-bold leading-[38px] text-[#118E7B]">
+              {STORY_SECTION.sectionTitle}
+            </h2>
+            {STORY_SECTION.paragraphs.map((paragraph) => (
+              <p
+                key={paragraph.slice(0, 40)}
+                className="font-[family-name:var(--font-manrope)] text-lg font-medium leading-7 text-[#535862]"
+              >
+                {paragraph}
+              </p>
+            ))}
           </div>
         </div>
 
         <div className="w-full min-w-[280px] max-w-[557px] flex-1">
-          <ProgramVideoPlayer src={ABOUT_VIDEO_SRC} label="Our story in 60 seconds!" />
+          <ProgramVideoPlayer src={ABOUT_VIDEO_SRC} label={ABOUT_VIDEO_LABEL} />
         </div>
       </div>
     </section>

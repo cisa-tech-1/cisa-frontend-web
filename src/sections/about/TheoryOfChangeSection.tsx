@@ -18,12 +18,12 @@ export function TheoryOfChangeSection() {
 
         <div className="grid gap-3 md:grid-cols-2">
           <VisionMissionCard
-            title="The Vision"
+            title="Our Vision"
             description={MISSION_VISION.vision.text}
             color="#B6621D"
           />
           <VisionMissionCard
-            title="The Mission"
+            title="Our Mission"
             description={MISSION_VISION.mission.text}
             color="#3469DD"
           />

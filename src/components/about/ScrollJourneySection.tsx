@@ -15,11 +15,17 @@ const PIECE_SRC: Record<TimelinePiece, string> = {
   king: "/images/svg/king.svg",
 };
 
+type JourneyStep = {
+  title: string;
+  text: string;
+};
+
 type ScrollJourneySectionProps = {
   badge?: string;
   heading?: string;
   images: readonly ScrollImage[];
-  content: ReactNode;
+  content?: ReactNode;
+  steps?: readonly JourneyStep[];
   reverse?: boolean;
   className?: string;
   showHeader?: boolean;
@@ -89,11 +95,25 @@ function TimelineRail({ activeIndex }: { activeIndex: number }) {
   );
 }
 
+function StepCard({ step }: { step: JourneyStep }) {
+  return (
+    <div className="flex flex-col gap-4">
+      <h3 className="font-[family-name:var(--font-manrope)] text-[30px] font-bold leading-[38px] text-[#181D27]">
+        {step.title}
+      </h3>
+      <p className="font-[family-name:var(--font-manrope)] text-xl font-medium leading-[30px] text-[#535862]">
+        {step.text}
+      </p>
+    </div>
+  );
+}
+
 export function ScrollJourneySection({
   badge = "",
   heading = "",
   images,
   content,
+  steps,
   reverse = false,
   className = "bg-white",
   showHeader = true,
@@ -134,7 +154,15 @@ export function ScrollJourneySection({
   const collage = <PhotoCollage images={images} activeIndex={activeIndex} />;
   const timeline = <TimelineRail activeIndex={activeIndex} />;
   const textBlock = (
-    <div className="w-full max-w-[539px] flex-1 transition-opacity duration-500">{content}</div>
+    <div className="w-full max-w-[539px] flex-1 transition-opacity duration-500">
+      {steps ? (
+        <div className="rounded-2xl bg-[#FAFAFA] p-8">
+          <StepCard step={steps[activeIndex] ?? steps[0]} />
+        </div>
+      ) : (
+        content
+      )}
+    </div>
   );
 
   return (

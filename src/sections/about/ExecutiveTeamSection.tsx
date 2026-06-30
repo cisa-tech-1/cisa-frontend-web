@@ -10,8 +10,8 @@ export function ExecutiveTeamSection() {
 
   return (
     <section className="bg-teal-500 px-5 pb-16 pt-14 md:px-20 md:pb-[100px] md:pt-14">
-      <div className="mx-auto flex max-w-[1280px] flex-col items-center gap-8 px-5 md:gap-12">
-        <div className="flex flex-col items-center gap-[30px] text-center">
+      <div className="mx-auto flex max-w-[1280px] flex-col items-center gap-8 md:gap-12">
+        <div className="flex max-w-[588px] flex-col items-center gap-[30px] text-center">
           <SectionBadge>Our team</SectionBadge>
           <p className="max-w-[588px] font-[family-name:var(--font-manrope)] text-xl font-medium leading-[30px] text-[#F5F5F5]">
             The people driving our mission forward — our board of trustees, management team, and

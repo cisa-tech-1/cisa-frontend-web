@@ -1,4 +1,5 @@
 export const ABOUT_VIDEO_SRC = "/images/videos/landing.mp4";
+export const ABOUT_VIDEO_LABEL = "Our story in\n60 seconds!";
 
 export const SCROLL_IMAGES_SET_1 = [
   {
@@ -67,26 +68,41 @@ export const TIMELINE_PIECES = ["bishop", "knight", "king"] as const;
 export type TimelinePiece = (typeof TIMELINE_PIECES)[number];
 
 export const STORY_SECTION = {
-  badge: "About Chess in Slums",
-  title: "The Story of Chess",
-  intro:
-    "We are using the game of chess to create a safe environment for education, empowerment and transformation for children living in underserved communities across Africa.",
-  body: `Chess in Slums Africa (CISA) is a nonprofit organization dedicated to uplifting children in underserved communities through chess, STEM education, and socio-emotional development. Founded in 2018 by Tunde Onakoya, CISA started with a simple goal: teaching chess to children in slum communities as a way to enhance their cognitive and life skills.
-
-Over the years, our programs have grown to include comprehensive educational initiatives that integrate robotics, AI, and digital literacy alongside chess education. We provide holistic support to children, addressing not only their educational needs but also their social and emotional well-being. Through scholarships, vocational training, and mentorship, we ensure that beneficiaries receive continuous guidance until they become productive, empowered, and responsible members of society.`,
+  badge: "A Chess Piece & A Dream",
+  quote:
+    "As we continue to expand margins, we must remember that the only future worth creating is the one that includes all of us..",
+  attribution: "— Tunde Onakoya, Founder CISA & Guinness World Record Holder",
+  sectionTitle: "Meet Tunde Onakoya",
+  paragraphs: [
+    "For Tunde, chess is far more than a black-and-white board with moving pieces, it was a lifeline. Born and raised in the Isale-Odo community of Ikorodu, Lagos, Tunde grew up surrounded by the harsh realities of poverty. Like many children in underserved communities, access to basic education and opportunities was uncertain. At one point, his parents could not afford to keep him in school.",
+    "Then came a turning point, quiet, unexpected, and life-defining. At a small roadside barber's shop, Tunde encountered the game of chess for the first time. What seemed like a simple pastime became a doorway into a different world. He became deeply fascinated, teaching himself the game and sharpening his skills with persistence and curiosity. Over time, he rose through the ranks to become one of Nigeria's top chess players.",
+    "But more importantly, chess did something deeper, it changed the trajectory of his life. Through the game, Tunde gained access to education, mentorship, exposure, and opportunities that once felt out of reach. Chess gave him a voice, a vision, and a future.",
+  ],
 } as const;
 
-export const JOURNEY_NARRATIVE =
-  "Founded in 2018 by Tunde Onakoya, Chess in Slums Africa started as a volunteer-driven non-profit with a simple goal: teaching chess to children in slum communities as a way to enhance their cognitive and life skills. What began in Ikorodu, Lagos has grown into a movement reaching communities across Nigeria and beyond — unlocking potential through chess, STEM education, and socio-emotional development.";
+export const JOURNEY_STEPS = [
+  {
+    title: "Our Mission",
+    text: "To use chess as a transformative tool to unlock critical thinking, build confidence, and open pathways to education and lifelong opportunities for children in underserved communities.",
+  },
+  {
+    title: "Our Vision",
+    text: "To empower, uplift, and educate 1 million children in marginalized communities across Africa over the next decade, using chess as a focal point.",
+  },
+  {
+    title: "Our Theory of Change",
+    text: "We believe that every child, regardless of their background, holds the potential to rise beyond adversity and build a brighter future. Through a transformative blend of chess, STEM education, and socio-emotional development, we equip children with critical thinking skills, resilience, and a strong sense of self-worth.",
+  },
+] as const;
 
 export const MISSION_VISION = {
   mission: {
-    title: "Mission",
-    text: "To use chess as a transformative tool to unlock critical thinking, build confidence, and open pathways to education and lifelong opportunities for children in underserved communities.",
+    title: "Our Mission",
+    text: JOURNEY_STEPS[0].text,
   },
   vision: {
-    title: "Vision",
-    text: "To empower, uplift, and educate 1 million children in marginalized communities across Africa over the next decade, using chess as a focal point.",
+    title: "Our Vision",
+    text: JOURNEY_STEPS[1].text,
   },
 } as const;
 
@@ -113,8 +129,7 @@ export const CHALLENGE_ITEMS = [
   },
 ] as const;
 
-export const THEORY_DESCRIPTION =
-  "We believe that every child, regardless of their background, holds the potential to rise beyond adversity and build a brighter future. Through a transformative blend of chess, STEM education, and socio-emotional development, we equip children with critical thinking skills, resilience, and a strong sense of self-worth.";
+export const THEORY_DESCRIPTION = JOURNEY_STEPS[2].text;
 
 export const IMPACT_STATS = [
   {
@@ -246,3 +261,8 @@ export const SHAPE_FUTURE_CARDS = [
     color: "#E38B17",
   },
 ] as const;
+
+export const ABOUT_NEWSLETTER = {
+  heading: "Stay Inspired with Our Impact Stories!",
+  placeholder: "Enter your email for impact updates",
+} as const;

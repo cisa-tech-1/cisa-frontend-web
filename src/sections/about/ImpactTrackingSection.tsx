@@ -4,13 +4,13 @@ import { IMPACT_STATS } from "@/lib/about";
 export function ImpactTrackingSection() {
   return (
     <section className="bg-[#FAFAFA] px-5 py-16 md:px-20 md:pb-[100px] md:pt-[62px]">
-      <div className="mx-auto flex max-w-[1280px] flex-col gap-10 px-0 md:gap-10">
+      <div className="mx-auto flex max-w-[1280px] flex-col gap-10">
         <SectionIntro
           badge="Impact stories"
           heading="Our impact by the numbers — across communities, countries, and lives transformed."
           centered
           headingFont="manrope"
-          headingClassName="max-w-[854px] leading-[50px]"
+          headingClassName="max-w-[854px] text-[36px] font-bold leading-[50px] text-[#0A0D12]"
         />
 
         <div className="flex flex-col gap-[25px]">

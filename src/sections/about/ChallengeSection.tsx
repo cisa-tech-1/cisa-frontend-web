@@ -12,6 +12,7 @@ export function ChallengeSection() {
           dark
           centered
           headingFont="manrope"
+          headingClassName="text-[36px] font-bold leading-[44px]"
         />
 
         <div className="flex w-full flex-col gap-3 lg:flex-row">

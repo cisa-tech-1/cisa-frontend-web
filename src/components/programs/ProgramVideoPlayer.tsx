@@ -49,7 +49,7 @@ export function ProgramVideoPlayer({ src, label }: ProgramVideoPlayerProps) {
           <span className="ml-1 size-0 border-y-12 border-l-20 border-y-transparent border-l-white" />
         </button>
 
-        <p className="max-w-[186px] text-center font-[family-name:var(--font-raleway)] text-2xl font-bold leading-[35px] text-white">
+        <p className="max-w-[186px] whitespace-pre-line text-center font-[family-name:var(--font-raleway)] text-2xl font-bold leading-[35px] text-white">
           {label}
         </p>
       </div>
