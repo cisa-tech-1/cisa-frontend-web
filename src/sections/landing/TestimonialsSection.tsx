@@ -1,59 +1,85 @@
-import { TestimonialCard } from "@/components/cards";
+import Image from "next/image";
+import { PageContainer } from "@/components/layout/PageContainer";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { PaginationDots } from "@/components/ui/PaginationDots";
-
-const TESTIMONIALS = [
-  {
-    name: "Supporter",
-    quote: "Chess in Slums is transforming lives in ways we never imagined possible.",
-    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80",
-    featured: false,
-  },
-  {
-    name: "Kate Henshaw",
-    quote:
-      "Little drops make a mighty ocean. 🙏 Again, I applaud you Tunde... You will never tire and great doors will be opened to you because you cared for others other than yourself..",
-    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80",
-    platform: "twitter" as const,
-    featured: true,
-  },
-  {
-    name: "Community Leader",
-    quote: "The impact on our children has been nothing short of remarkable.",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80",
-    featured: false,
-  },
-];
+import { LANDING_TESTIMONIAL } from "@/lib/landing";
 
 export function TestimonialsSection() {
   return (
     <section className="bg-background py-20 md:py-28">
-      <div className="mx-auto max-w-[885px] px-5">
+      <PageContainer className="max-w-[885px]">
         <SectionHeader
           heading={
-            <span className="flex items-center justify-center gap-4">
-              Our Wall of Love <span>❤️</span>
+            <span className="flex items-center justify-center gap-[15px] font-[family-name:var(--font-manrope)] text-[32px] font-extrabold leading-[60px] tracking-[-0.02em] text-[#282828] md:text-[45px]">
+              Our Wall of Love
+              <span aria-hidden>❤️</span>
             </span>
           }
           description="Sponsors and supporters share their love of helping children"
           className="mb-12"
         />
 
-        <div className="relative flex flex-col items-center gap-8 md:flex-row md:items-stretch">
-          {TESTIMONIALS.map((t) => (
-            <div
-              key={t.name}
-              className={`w-full md:w-[322px] ${t.featured ? "md:-mt-6" : "md:mt-6"}`}
-            >
-              <TestimonialCard {...t} />
+        <div className="relative flex flex-col items-center justify-center gap-8 md:flex-row md:items-center md:gap-[175px]">
+          <div
+            className="hidden h-[336px] w-[323px] rotate-[-5.84deg] overflow-hidden rounded-xl border-[5px] border-[#FEBCA6] md:block md:shrink-0"
+            aria-hidden
+          >
+            <div className="relative h-full w-full">
+              <Image
+                src="/images/home/children/fawaz.jpg"
+                alt=""
+                fill
+                className="object-cover"
+                sizes="323px"
+              />
             </div>
-          ))}
+          </div>
+
+          <article className="relative z-10 flex w-full max-w-[402px] flex-col items-center gap-[26px] rounded-lg bg-[#28292C] px-7 py-14 text-center">
+            <div className="relative size-[95px] overflow-hidden rounded-full">
+              <Image
+                src={LANDING_TESTIMONIAL.avatar}
+                alt={LANDING_TESTIMONIAL.name}
+                fill
+                className="object-cover"
+                sizes="95px"
+              />
+            </div>
+            <div className="flex flex-col gap-[18px]">
+              <div className="flex items-center justify-center gap-1.5">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="#1DA1F2" aria-hidden>
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                </svg>
+                <h3 className="font-[family-name:var(--font-bricolage)] text-2xl font-bold text-[#EFEFEF]">
+                  {LANDING_TESTIMONIAL.name}
+                </h3>
+              </div>
+              <p className="font-[family-name:var(--font-jost)] text-xl leading-[27px] text-white">
+                {LANDING_TESTIMONIAL.quote}
+              </p>
+            </div>
+          </article>
+
+          <div
+            className="hidden h-[336px] w-[323px] rotate-[5.84deg] overflow-hidden rounded-xl border-[5px] border-[#FEBCA6] md:block md:shrink-0"
+            aria-hidden
+          >
+            <div className="relative h-full w-full">
+              <Image
+                src="/images/home/children/sunday.jpg"
+                alt=""
+                fill
+                className="object-cover"
+                sizes="323px"
+              />
+            </div>
+          </div>
         </div>
 
         <div className="mt-10 flex justify-center">
-          <PaginationDots total={6} active={0} />
+          <PaginationDots total={6} active={0} className="bg-transparent" />
         </div>
-      </div>
+      </PageContainer>
     </section>
   );
 }

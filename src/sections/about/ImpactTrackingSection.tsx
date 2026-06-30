@@ -1,19 +1,60 @@
+import Image from "next/image";
 import { CountUpStat, SectionIntro } from "@/components/about";
+import { PageContainer } from "@/components/layout/PageContainer";
+import {
+  FORECAST_BANNER,
+  IMPACT_REPORT_HEADER,
+  ROUNDED_LOGO,
+} from "@/lib/impact";
 import { IMPACT_STATS } from "@/lib/about";
 
-export function ImpactTrackingSection() {
-  return (
-    <section className="bg-[#FAFAFA] px-5 py-16 md:px-20 md:pb-[100px] md:pt-[62px]">
-      <div className="mx-auto flex max-w-[1280px] flex-col gap-10">
-        <SectionIntro
-          badge="Impact stories"
-          heading="Our impact by the numbers — across communities, countries, and lives transformed."
-          centered
-          headingFont="manrope"
-          headingClassName="max-w-[854px] text-[36px] font-bold leading-[50px] text-[#0A0D12]"
-        />
+type ImpactTrackingSectionProps = {
+  showForecastBanner?: boolean;
+};
 
-        <div className="flex flex-col gap-[25px]">
+export function ImpactTrackingSection({ showForecastBanner = false }: ImpactTrackingSectionProps) {
+  return (
+    <section className="bg-[#FAFAFA] py-12 md:py-[50px]">
+      <PageContainer className="flex flex-col gap-[30px]">
+        {showForecastBanner ? (
+          <>
+            <div className="flex items-center gap-4">
+              <Image
+                src={ROUNDED_LOGO}
+                alt="Chess in Slums Africa"
+                width={89}
+                height={51}
+                className="shrink-0 rounded-full border border-[#F5F5F5]"
+              />
+              <div>
+                <h2 className="font-[family-name:var(--font-bricolage)] text-xl font-semibold leading-[30px] text-[#181D27]">
+                  {IMPACT_REPORT_HEADER.title}
+                </h2>
+                <p className="text-base leading-6 text-[#535862]">
+                  {IMPACT_REPORT_HEADER.subtitle}
+                </p>
+              </div>
+            </div>
+
+            <div className="h-px w-full bg-[#E9EAEB]" />
+
+            <div className="rounded-[20px] bg-[#FEF0C7] px-8 py-[22px] text-center">
+              <p className="font-[family-name:var(--font-manrope)] text-xl font-medium leading-[30px] text-[#93370D]">
+                {FORECAST_BANNER}
+              </p>
+            </div>
+          </>
+        ) : (
+          <SectionIntro
+            badge="Impact stories"
+            heading="Our impact by the numbers — across communities, countries, and lives transformed."
+            centered
+            headingFont="manrope"
+            headingClassName="max-w-[854px] text-[36px] font-bold leading-[50px] text-[#0A0D12]"
+          />
+        )}
+
+        <div className="flex flex-col gap-3">
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {IMPACT_STATS.slice(0, 4).map((stat) => (
               <ImpactStatCard key={stat.label} stat={stat} />
@@ -25,7 +66,7 @@ export function ImpactTrackingSection() {
             ))}
           </div>
         </div>
-      </div>
+      </PageContainer>
     </section>
   );
 }

@@ -30,11 +30,11 @@ export function InfoCard({
         <Image src={image} alt={imageAlt} fill className="object-cover" sizes="288px" />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
         <div className="absolute bottom-4 left-4 right-4">
-          <h3 className="font-[family-name:var(--font-bricolage)] text-2xl font-bold leading-tight text-white">
+          <h3 className="font-[family-name:var(--font-bricolage)] text-[28px] font-bold leading-[34px] text-white">
             {title}
           </h3>
           {subtitle && (
-            <p className="mt-1 font-[family-name:var(--font-bricolage)] text-2xl font-bold text-white/90">
+            <p className="mt-1 font-[family-name:var(--font-bricolage)] text-[28px] font-bold leading-[34px] text-white">
               {subtitle}
             </p>
           )}

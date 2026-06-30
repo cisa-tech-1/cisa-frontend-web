@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
-import { Footer } from "@/components/layout/Footer";
-import { ImpactHeroSection } from "@/sections/impact/ImpactHeroSection";
-import { ImpactStatsSection } from "@/sections/impact/ImpactStatsSection";
+import { ProgramsStickyCTAs } from "@/components/layout/ProgramsStickyCTAs";
+import { SimpleFooter } from "@/components/layout/SimpleFooter";
+import { ImpactTrackingSection } from "@/sections/about/ImpactTrackingSection";
 import { ImpactChartsSection } from "@/sections/impact/ImpactChartsSection";
-import { SupportingDocumentsSection } from "@/sections/impact/SupportingDocumentsSection";
-import { ImpactPartnersSection } from "@/sections/impact/ImpactPartnersSection";
 import { ImpactCtaSection } from "@/sections/impact/ImpactCtaSection";
+import { ImpactGrowthSection } from "@/sections/impact/ImpactGrowthSection";
+import { ImpactHeroSection } from "@/sections/impact/ImpactHeroSection";
+import { ImpactPartnersSection } from "@/sections/impact/ImpactPartnersSection";
+import { ImpactSdgSection } from "@/sections/impact/ImpactSdgSection";
+import { SupportingDocumentsSection } from "@/sections/impact/SupportingDocumentsSection";
 
 export const metadata: Metadata = {
   title: "Impact | Chess in Slums Africa",
@@ -16,13 +19,16 @@ export const metadata: Metadata = {
 export default function ImpactPage() {
   return (
     <main className="bg-background">
+      <ProgramsStickyCTAs />
       <ImpactHeroSection />
-      <ImpactStatsSection />
+      <ImpactTrackingSection showForecastBanner />
       <ImpactChartsSection />
+      <ImpactSdgSection />
+      <ImpactGrowthSection />
       <SupportingDocumentsSection />
       <ImpactPartnersSection />
       <ImpactCtaSection />
-      <Footer />
+      <SimpleFooter />
     </main>
   );
 }

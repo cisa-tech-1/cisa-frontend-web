@@ -1,34 +1,31 @@
+import Image from "next/image";
 import { SDG_GOALS } from "@/lib/impact";
 
 export function SdgImpactGrid() {
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-[30px]">
       <div className="flex flex-wrap gap-[30px]">
-        {SDG_GOALS.slice(0, 6).map((goal) => (
-          <div
+        {SDG_GOALS.slice(0, 4).map((goal) => (
+          <Image
             key={goal.id}
-            className="flex h-20 w-20 items-center justify-center rounded text-white"
-            style={{ backgroundColor: goal.color }}
-            title={goal.label}
-          >
-            <span className="font-[family-name:var(--font-bricolage)] text-2xl font-bold">
-              {goal.id}
-            </span>
-          </div>
+            src={goal.image}
+            alt={goal.label}
+            width={80}
+            height={80}
+            className="size-20 object-contain"
+          />
         ))}
       </div>
       <div className="flex flex-wrap gap-[30px]">
-        {SDG_GOALS.slice(6).map((goal) => (
-          <div
+        {SDG_GOALS.slice(4).map((goal) => (
+          <Image
             key={goal.id}
-            className="flex h-20 w-20 items-center justify-center rounded text-white"
-            style={{ backgroundColor: goal.color }}
-            title={goal.label}
-          >
-            <span className="font-[family-name:var(--font-bricolage)] text-2xl font-bold">
-              {goal.id}
-            </span>
-          </div>
+            src={goal.image}
+            alt={goal.label}
+            width={80}
+            height={80}
+            className="size-20 object-contain"
+          />
         ))}
       </div>
     </div>

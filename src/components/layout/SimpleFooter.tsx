@@ -24,7 +24,7 @@ export function SimpleFooter() {
         <div className="absolute inset-0 bg-[#151414]/80" />
       </div>
 
-      <div className="relative mx-auto flex min-h-[502px] w-full max-w-[1280px] flex-col justify-end px-[20px] pb-10 pt-44 md:pb-12 md:pt-48">
+      <div className="relative mx-auto flex min-h-[502px] w-full max-w-[1280px] flex-col justify-end px-[20px] pb-10 pt-48 md:pb-12 md:pt-52">
         <div className="flex flex-col gap-11">
           <div className="flex flex-col items-start justify-between gap-10 lg:flex-row lg:items-center">
             <div className="flex max-w-[639px] items-center gap-[15px]">

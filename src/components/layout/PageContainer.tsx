@@ -7,6 +7,6 @@ type PageContainerProps = {
 
 export function PageContainer({ children, className = "" }: PageContainerProps) {
   return (
-    <div className={`mx-auto w-full max-w-[1280px] px-[20px] ${className}`}>{children}</div>
+    <div className={`mx-auto w-full max-w-[1280px] px-5 ${className}`}>{children}</div>
   );
 }

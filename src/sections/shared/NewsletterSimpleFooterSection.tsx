@@ -14,10 +14,10 @@ export function NewsletterSimpleFooterSection({
   hint = "We care about your data privacy.",
 }: NewsletterSimpleFooterSectionProps) {
   return (
-    <div className="relative">
+    <div className="relative mt-12 md:mt-16">
       <div className="pointer-events-none absolute inset-x-0 top-0 z-20 -translate-y-1/2 px-[20px]">
         <PageContainer className="pointer-events-auto">
-          <div className="flex flex-col items-start justify-between gap-8 rounded-2xl bg-[#125D56] px-8 py-16 shadow-xl md:flex-row md:items-center md:gap-8 md:px-16">
+          <div className="flex flex-col items-start justify-between gap-8 rounded-2xl bg-[#125D56] px-8 py-12 shadow-xl md:flex-row md:items-center md:gap-8 md:px-16">
             <h2 className="max-w-[608px] font-[family-name:var(--font-bricolage)] text-4xl font-semibold leading-11 tracking-[-0.02em] text-white">
               {heading}
             </h2>

@@ -3,13 +3,14 @@ import { MissionSection } from "@/sections/landing/MissionSection";
 import { ApproachSection } from "@/sections/landing/ApproachSection";
 import { TeamSection } from "@/sections/landing/TeamSection";
 import { ImpactSection } from "@/sections/landing/ImpactSection";
-import { GlobalReachSection, VisionSection } from "@/sections/landing/GlobalReachSection";
+import { VisionSection } from "@/sections/landing/VisionSection";
+import { GlobalReachSection } from "@/sections/landing/GlobalReachSection";
 import { GallerySection } from "@/sections/landing/GallerySection";
 import { ChangeMakerSection } from "@/sections/landing/ChangeMakerSection";
 import { PartnersSection } from "@/sections/landing/PartnersSection";
-import { TestimonialsSection } from "@/sections/landing/TestimonialsSection";
+// import { TestimonialsSection } from "@/sections/landing/TestimonialsSection";
 import { BlogSection } from "@/sections/landing/BlogSection";
-import { NewsletterSection } from "@/sections/shared/NewsletterSection";
+import { NewsletterSimpleFooterSection } from "@/sections/shared/NewsletterSimpleFooterSection";
 
 export default function Home() {
   return (
@@ -24,9 +25,9 @@ export default function Home() {
       <GallerySection />
       <ChangeMakerSection />
       <PartnersSection />
-      <TestimonialsSection />
+      {/* <TestimonialsSection /> */}
       <BlogSection />
-      <NewsletterSection />
+      <NewsletterSimpleFooterSection heading="Join our newsletter and stay updated!" />
     </main>
   );
 }

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ImpactStatCard } from "@/components/cards";
 
 const STATS = [
@@ -29,26 +30,27 @@ const STATS = [
 
 export function ImpactSection() {
   return (
-    <section className="bg-background py-20 md:py-28">
-      <div className="mx-auto max-w-[1300px] px-5">
-        <div className="mb-12 text-center">
-          <h2 className="text-[28px] font-extrabold text-[#282828] md:text-[45px] md:leading-[55px]">
-            Building a World where Every Child{" "}
-            <span className="inline-flex items-center gap-3">
-              can
-              <span className="rounded-full border border-[#D5D7DA] px-4 py-2 text-2xl font-bold text-[#5A5A5A] shadow-sm">
-                🌍 Africa
-              </span>
-              thrive
-            </span>
-          </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-xl font-medium text-[#282828]">
-            Our impact spans communities, countries, and continents — one pawn at a time.
-          </p>
-        </div>
+    <section className="bg-background py-12 md:py-16">
+      <div className="mx-auto max-w-[1301px] px-5">
+        <div className="relative mx-auto flex max-w-[893px] items-center justify-center">
+          <Image
+            src="/images/bishop.png"
+            alt=""
+            width={161}
+            height={584}
+            aria-hidden
+            className="pointer-events-none absolute -left-8 top-1/2 hidden h-auto w-[120px] -translate-y-1/2 opacity-90 lg:block xl:-left-24 xl:w-[161px]"
+          />
+          <Image
+            src="/images/rook.png"
+            alt=""
+            width={171}
+            height={578}
+            aria-hidden
+            className="pointer-events-none absolute -right-8 top-1/2 hidden h-auto w-[120px] -translate-y-1/2 opacity-90 lg:block xl:-right-24 xl:w-[171px]"
+          />
 
-        <div className="relative mx-auto max-w-[893px]">
-          <div className="grid grid-cols-1 gap-0 sm:grid-cols-3">
+          <div className="grid w-full grid-cols-1 gap-0 sm:grid-cols-3">
             {STATS.map((stat) => (
               <ImpactStatCard
                 key={stat.value}

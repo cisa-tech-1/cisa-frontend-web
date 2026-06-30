@@ -1,65 +1,21 @@
 export const IMPACT_HERO = {
-  badge: "Impact & Transparency",
+  badge: "Our Impact Report",
   title: "Together for Transformation & Partnerships That Drive Impact",
   description:
-    "We measure what matters — tracking beneficiaries, communities reached, program outcomes, and the partnerships that help us scale chess-led education across Africa.",
-  image:
-    "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=1000&q=80",
+    "At Chess in Slums Africa, we understand that transparency is the cornerstone of trust and meaningful collaboration. Our annual impact reports showcase our unwavering commitment to accountability and highlight how partnerships help us amplify the reach, sustainability, and transformative power of our programs.",
+  image: "/images/impact/impact-hero-img.png",
 } as const;
 
 export const FORECAST_BANNER =
   "2026 forecast based on CISA's year-on-year growth trajectory (~30% average). Projections assume continued program expansion and secured partnerships.";
 
-export const IMPACT_STAT_CARDS = [
-  {
-    value: "5,000+",
-    label: "Total beneficiaries",
-    detail: "+40% since 2020",
-    target: "Target 2027 - 8,500",
-  },
-  {
-    value: "25+",
-    label: "African countries engaged",
-    detail: "Partnership & chess ed",
-    target: "Target 2027 - 35",
-  },
-  {
-    value: "7+",
-    label: "Communities reached in Nigeria",
-    detail: "Makoko, Oshodi, Ilaje +",
-    target: "Target 2027 - 20",
-  },
-  {
-    value: "300+",
-    label: "Children with health coverage",
-    detail: "Health insurance active",
-    target: "Target 2027 - 1,000",
-  },
-  {
-    value: "100+",
-    label: "Chess tournament held",
-    detail: "+70% top performance rate",
-    target: "Target 2027 - 150",
-  },
-  {
-    value: "450",
-    label: "Scholarship & vocational kids (2022)",
-    detail: "Primary: 54%, Uni: 7%",
-    target: "Target 2027 - 900",
-  },
-  {
-    value: "1",
-    label: "Innovation Hub (200+ students free access)",
-    detail: "Robotics - Coding - Art",
-    target: "Target 2027 - 5 hubs",
-  },
-  {
-    value: "$200K",
-    label: "Budget manage (2022)",
-    detail: "Multi-source funding",
-    target: "Target 2027 - $500k",
-  },
-] as const;
+export const ROUNDED_LOGO = "/images/logos/rounded-logo.png";
+
+export const IMPACT_REPORT_HEADER = {
+  title: "Our Impact Report at a Glance",
+  subtitle:
+    "A summary of our key achievements and the progress we have made in our mission.",
+} as const;
 
 export const BUDGET_CATEGORIES = [
   { label: "Programs", value: "$82K", color: "#EC4A0A" },
@@ -92,23 +48,22 @@ export const GLOBAL_REACH_COUNTRIES = [
 ] as const;
 
 export const MAP_MARKERS = [
-  { name: "Nigeria", x: 48, y: 58 },
-  { name: "Ghana", x: 44, y: 56 },
-  { name: "Kenya", x: 58, y: 62 },
-  { name: "South Africa", x: 54, y: 78 },
-  { name: "UK", x: 46, y: 32 },
-  { name: "India", x: 68, y: 48 },
+  { name: "Nigeria", left: "48%", top: "52%" },
+  { name: "Ghana", left: "44%", top: "56%" },
+  { name: "Kenya", left: "58%", top: "62%" },
+  { name: "UK", left: "46%", top: "28%" },
+  { name: "India", left: "68%", top: "48%" },
 ] as const;
 
 export const SDG_GOALS = [
-  { id: 1, label: "No Poverty", color: "#E5243B" },
-  { id: 2, label: "Zero Hunger", color: "#DDA63A" },
-  { id: 3, label: "Good Health", color: "#4C9F38" },
-  { id: 4, label: "Quality Education", color: "#C5192D" },
-  { id: 5, label: "Gender Equality", color: "#FF3A21" },
-  { id: 8, label: "Decent Work", color: "#A21942" },
-  { id: 10, label: "Reduced Inequalities", color: "#DD1367" },
-  { id: 17, label: "Partnerships", color: "#19486A" },
+  { id: 1, image: "/images/impact/sdg/sdg-1.png", label: "No Poverty" },
+  { id: 2, image: "/images/impact/sdg/sdg-2.png", label: "Zero Hunger" },
+  { id: 3, image: "/images/impact/sdg/sdg-3.png", label: "Good Health" },
+  { id: 4, image: "/images/impact/sdg/sdg-4.png", label: "Quality Education" },
+  { id: 5, image: "/images/impact/sdg/sdg-5.png", label: "Gender Equality" },
+  { id: 8, image: "/images/impact/sdg/sdg-8.png", label: "Decent Work" },
+  { id: 10, image: "/images/impact/sdg/sdg-10.png", label: "Reduced Inequalities" },
+  { id: 17, image: "/images/impact/sdg/sdg-17.png", label: "Partnerships" },
 ] as const;
 
 export const SECTOR_BREAKDOWN_DATA = [
@@ -116,17 +71,6 @@ export const SECTOR_BREAKDOWN_DATA = [
   { name: "Schools", value: 28, color: "#15B79E" },
   { name: "Innovation", value: 22, color: "#2ED3B7" },
   { name: "Partnerships", value: 15, color: "#5FE9D0" },
-] as const;
-
-export const IMPACT_AREAS_DATA = [
-  { name: "Education", value: 62, color: "#66C61C" },
-  { name: "Health", value: 38, color: "#FB6514" },
-] as const;
-
-export const BENEFICIARIES_BY_PROGRAM = [
-  { program: "Chess Clubs", count: 454 },
-  { program: "Scholarships", count: 363 },
-  { program: "Health", count: 194 },
 ] as const;
 
 export const REVENUE_GROWTH_DATA = [
@@ -155,29 +99,30 @@ export const SUPPORTING_DOCUMENTS = [
   {
     title: "Audited FS 2019 - 2020",
     meta: "PDF • 2.4 MB",
-    status: "Verified",
+    pdf: "/pdfs/sample.pdf",
   },
   {
     title: "Audited FS 2020 - 2021",
     meta: "PDF • 2.4 MB",
-    status: "Verified",
+    pdf: "/pdfs/sample.pdf",
   },
   {
     title: "Audited FS 2021 - 2022",
     meta: "PDF • 2.4 MB",
-    status: "Verified",
+    pdf: "/pdfs/sample.pdf",
   },
 ] as const;
 
-export const IMPACT_PARTNERS = [
-  "DanhyPro",
-  "Chessable",
-  "Chipper",
-  "Lufthansa",
-  "Octa",
-  "ChessKid",
-  "Venture Garden",
-  "CafeOne",
-  "Chess.com",
-  "Crevatal",
+export const PARTNER_LOGOS = [
+  "/images/logos/astra-logo.png",
+  "/images/logos/bolt-logo.png",
+  "/images/logos/atlas-logo.png",
 ] as const;
+
+export const IMPACT_CTA = {
+  title: "Be a Game Changer",
+  description:
+    "Partner with us, volunteer your time, or support our mission financially. Every contribution helps us reach more children in underserved communities.",
+  primaryCta: "DONATE NOW",
+  secondaryCta: "PARTNER WITH US",
+} as const;

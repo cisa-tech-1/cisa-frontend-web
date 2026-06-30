@@ -1,7 +1,7 @@
 "use client";
 
 import { Cell, Pie, PieChart, ResponsiveContainer } from "recharts";
-import { SECTOR_BREAKDOWN_DATA, IMPACT_AREAS_DATA } from "@/lib/impact";
+import { SECTOR_BREAKDOWN_DATA } from "@/lib/impact";
 
 type DonutChartProps = {
   data: readonly { name: string; value: number; color: string }[];
@@ -10,7 +10,7 @@ type DonutChartProps = {
 function DonutChart({ data }: DonutChartProps) {
   return (
     <div className="flex flex-col items-center gap-6 sm:flex-row">
-      <div className="h-[200px] w-[200px] shrink-0 sm:h-[240px] sm:w-[240px]">
+      <div className="h-[200px] w-[200px] shrink-0">
         <ResponsiveContainer width="100%" height="100%">
           <PieChart>
             <Pie
@@ -29,7 +29,7 @@ function DonutChart({ data }: DonutChartProps) {
           </PieChart>
         </ResponsiveContainer>
       </div>
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-1">
         {data.map((item) => (
           <div key={item.name} className="flex items-center gap-2">
             <span
@@ -48,8 +48,4 @@ function DonutChart({ data }: DonutChartProps) {
 
 export function SectorBreakdownChart() {
   return <DonutChart data={SECTOR_BREAKDOWN_DATA} />;
-}
-
-export function ImpactAreasChart() {
-  return <DonutChart data={IMPACT_AREAS_DATA} />;
 }

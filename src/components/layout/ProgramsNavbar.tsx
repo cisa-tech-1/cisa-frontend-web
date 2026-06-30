@@ -11,15 +11,34 @@ const DONATE_HEART_ICON = (
   <Image src="/images/svg/heart.svg" alt="" width={16} height={14} aria-hidden />
 );
 
-export function ProgramsNavbar({ className = "bg-[#FCFCFC]" }: { className?: string }) {
+type ProgramsNavbarProps = {
+  className?: string;
+  variant?: "default" | "hero";
+};
+
+export function ProgramsNavbar({
+  className,
+  variant = "default",
+}: ProgramsNavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const isHero = variant === "hero";
+
+  const headerClass = isHero
+    ? `absolute inset-x-0 top-0 z-50 border-b border-transparent ${className ?? ""}`
+    : `relative border-b border-transparent ${className ?? "bg-[#FCFCFC]"}`;
+
+  const linkClass = isHero
+    ? "font-[family-name:var(--font-manrope)] text-base font-semibold leading-6 text-white transition-opacity hover:opacity-80"
+    : "font-[family-name:var(--font-manrope)] text-base font-semibold leading-6 text-[#282828] transition-opacity hover:opacity-80";
+
+  const burgerClass = isHero ? "bg-white" : "bg-[#282828]";
 
   return (
-    <header className={`relative border-b border-transparent ${className}`}>
+    <header className={headerClass}>
       <PageContainer className="flex items-center justify-between py-7 lg:pr-[360px]">
         <Link href="/" className="shrink-0">
           <Image
-            src="/images/logos/main-logo.png"
+            src={isHero ? "/images/logos/white-logo.png" : "/images/logos/main-logo.png"}
             alt="Chess in Slums Africa"
             width={96}
             height={42}
@@ -29,11 +48,7 @@ export function ProgramsNavbar({ className = "bg-[#FCFCFC]" }: { className?: str
 
         <nav className="hidden items-center gap-5 lg:flex">
           {PROGRAMS_NAV_LINKS.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="font-[family-name:var(--font-manrope)] text-base font-semibold leading-6 text-[#282828] transition-opacity hover:opacity-80"
-            >
+            <Link key={link.href} href={link.href} className={linkClass}>
               {link.label}
             </Link>
           ))}
@@ -46,25 +61,31 @@ export function ProgramsNavbar({ className = "bg-[#FCFCFC]" }: { className?: str
           aria-label="Toggle menu"
         >
           <span
-            className={`block h-0.5 w-6 bg-[#282828] transition ${mobileOpen ? "translate-y-2 rotate-45" : ""}`}
+            className={`block h-0.5 w-6 ${burgerClass} transition ${mobileOpen ? "translate-y-2 rotate-45" : ""}`}
           />
           <span
-            className={`block h-0.5 w-6 bg-[#282828] transition ${mobileOpen ? "opacity-0" : ""}`}
+            className={`block h-0.5 w-6 ${burgerClass} transition ${mobileOpen ? "opacity-0" : ""}`}
           />
           <span
-            className={`block h-0.5 w-6 bg-[#282828] transition ${mobileOpen ? "-translate-y-2 -rotate-45" : ""}`}
+            className={`block h-0.5 w-6 ${burgerClass} transition ${mobileOpen ? "-translate-y-2 -rotate-45" : ""}`}
           />
         </button>
       </PageContainer>
 
       {mobileOpen && (
-        <div className="border-t border-[#E9EAEB] bg-white px-[20px] py-6 lg:hidden">
+        <div
+          className={`px-[20px] py-6 lg:hidden ${
+            isHero
+              ? "border-t border-white/10 bg-black/90 backdrop-blur-md"
+              : "border-t border-[#E9EAEB] bg-white"
+          }`}
+        >
           <nav className="flex flex-col gap-4">
             {PROGRAMS_NAV_LINKS.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="font-[family-name:var(--font-manrope)] text-base font-semibold text-[#282828]"
+                className={linkClass}
                 onClick={() => setMobileOpen(false)}
               >
                 {link.label}
@@ -72,14 +93,14 @@ export function ProgramsNavbar({ className = "bg-[#FCFCFC]" }: { className?: str
             ))}
             <div className="mt-4 flex flex-col gap-3">
               <Button
-                href="/get-involved"
+                href="/partner"
                 variant="custom"
                 size="sm"
                 font="jost"
                 className="font-bold text-white"
                 style={{ backgroundColor: "#F87C22", color: "#FFFFFF" }}
               >
-                Be a Game Changer
+                Become a Partner
               </Button>
               <Button
                 href="/donate"
