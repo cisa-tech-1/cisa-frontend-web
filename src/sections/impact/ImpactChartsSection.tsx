@@ -4,6 +4,7 @@ import { BudgetGaugeChart } from "@/components/impact/charts/BudgetGaugeChart";
 import { FinancialStatusChart } from "@/components/impact/charts/FinancialStatusChart";
 import { GlobalReachMap } from "@/components/impact/charts/GlobalReachMap";
 import { SectorPieChart } from "@/components/impact/charts/SectorPieChart";
+import { Reveal } from "@/components/motion/Reveal";
 
 function ViewReportButton() {
   return (
@@ -20,7 +21,7 @@ export function ImpactChartsSection() {
   return (
     <section className="bg-[#FAFAFA] pb-12 md:pb-[50px]">
       <PageContainer>
-        <div className="flex flex-col gap-6 rounded-sm bg-white p-5 md:p-8">
+        <Reveal className="flex flex-col gap-6 rounded-sm bg-white p-5 md:p-8">
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1.6fr_1fr]">
             <ChartCard title="Total Funding">
               <BudgetGaugeChart />
@@ -43,7 +44,7 @@ export function ImpactChartsSection() {
           >
             <GlobalReachMap />
           </ChartCard>
-        </div>
+        </Reveal>
       </PageContainer>
     </section>
   );

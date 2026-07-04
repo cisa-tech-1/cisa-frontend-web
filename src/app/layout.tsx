@@ -7,6 +7,7 @@ import {
   Raleway,
 } from "next/font/google";
 import "./globals.css";
+import { MotionProvider } from "@/components/motion/MotionProvider";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -52,7 +53,9 @@ export default function RootLayout({
       lang="en"
       className={`${manrope.variable} ${raleway.variable} ${kumbhSans.variable} ${jost.variable} ${bricolage.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <MotionProvider>{children}</MotionProvider>
+      </body>
     </html>
   );
 }

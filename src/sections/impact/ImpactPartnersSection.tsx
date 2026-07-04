@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { PageContainer } from "@/components/layout/PageContainer";
+import { Reveal } from "@/components/motion/Reveal";
 import { PARTNER_LOGOS } from "@/lib/impact";
 
 const GRID_SLOTS = 10;
@@ -9,7 +10,7 @@ export function ImpactPartnersSection() {
   return (
     <section className="bg-white py-16">
       <PageContainer className="flex flex-col gap-12 lg:flex-row lg:items-start lg:gap-[120px]">
-        <div className="w-full max-w-[329px] shrink-0">
+        <Reveal className="w-full max-w-[329px] shrink-0">
           <h2 className="font-[family-name:var(--font-bricolage)] text-[30px] font-semibold leading-[38px] text-black">
             Brands We Have Made an Impact With
           </h2>
@@ -22,9 +23,12 @@ export function ImpactPartnersSection() {
           >
             Join our partners
           </Link>
-        </div>
+        </Reveal>
 
-        <div className="grid flex-1 grid-cols-2 gap-8 sm:grid-cols-3 md:grid-cols-5 md:gap-y-12">
+        <Reveal
+          delay={0.12}
+          className="grid flex-1 grid-cols-2 gap-8 sm:grid-cols-3 md:grid-cols-5 md:gap-y-12"
+        >
           {Array.from({ length: GRID_SLOTS }).map((_, index) => {
             const logo = PARTNER_LOGOS[index % PARTNER_LOGOS.length];
             return (
@@ -39,7 +43,7 @@ export function ImpactPartnersSection() {
               </div>
             );
           })}
-        </div>
+        </Reveal>
       </PageContainer>
     </section>
   );

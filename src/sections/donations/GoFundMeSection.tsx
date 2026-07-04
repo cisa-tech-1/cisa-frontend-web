@@ -1,13 +1,14 @@
 import Image from "next/image";
 import { GoFundMeButton } from "@/components/donations/GoFundMeButton";
 import { DonationsContainer } from "@/components/donations/DonationsContainer";
+import { Reveal } from "@/components/motion/Reveal";
 import { GOFUNDME_URL } from "@/lib/donations";
 
 export function GoFundMeSection() {
   return (
     <section className="bg-[#FCFCFC] pb-[120px]">
       <DonationsContainer>
-        <div className="flex min-h-[258px] flex-col items-center justify-between gap-8 rounded-xl bg-[#F8E9D6] px-14 py-[71px] md:flex-row">
+        <Reveal className="flex min-h-[258px] flex-col items-center justify-between gap-8 rounded-xl bg-[#F8E9D6] px-14 py-[71px] md:flex-row">
           <div className="flex items-center gap-[22px]">
             <div className="relative flex size-[113px] shrink-0 items-center justify-center rounded-full bg-white">
               <Image
@@ -24,7 +25,7 @@ export function GoFundMeSection() {
           </div>
 
           <GoFundMeButton href={GOFUNDME_URL} />
-        </div>
+        </Reveal>
       </DonationsContainer>
     </section>
   );

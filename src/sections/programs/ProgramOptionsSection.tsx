@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { PageContainer } from "@/components/layout/PageContainer";
 import { ProgramVideoPlayer } from "@/components/programs";
+import { Reveal } from "@/components/motion/Reveal";
 import { PROGRAM_OPTIONS, type ProgramOptionId } from "@/lib/programs";
 
 function ProgramOptionTab({
@@ -37,9 +38,12 @@ export function ProgramOptionsSection() {
   return (
     <section id="program-options" className="bg-[#FCFCFC] py-16 md:py-24">
       <PageContainer className="flex flex-col items-center gap-10">
-        <h2 className="text-center font-[family-name:var(--font-manrope)] text-[45px] font-extrabold leading-[60px] tracking-[-0.02em] text-[#282828]">
+        <Reveal
+          as="h2"
+          className="text-center font-[family-name:var(--font-manrope)] text-[45px] font-extrabold leading-[60px] tracking-[-0.02em] text-[#282828]"
+        >
           Explore Our Program Options
-        </h2>
+        </Reveal>
 
         <div className="flex max-w-[683px] flex-col items-center gap-[18px]">
           <div className="flex flex-wrap items-center justify-center gap-[18px]">
@@ -64,7 +68,7 @@ export function ProgramOptionsSection() {
           </div>
         </div>
 
-        <div className="flex w-full flex-col items-start gap-10 lg:flex-row lg:gap-10">
+        <Reveal className="flex w-full flex-col items-start gap-10 lg:flex-row lg:gap-10">
           <ProgramVideoPlayer key={content.id} src={content.videoSrc} label={content.videoLabel} />
 
           <div className="flex w-full max-w-[664px] flex-col gap-[30px]">
@@ -110,7 +114,7 @@ export function ProgramOptionsSection() {
               </ul>
             </div>
           </div>
-        </div>
+        </Reveal>
       </PageContainer>
     </section>
   );

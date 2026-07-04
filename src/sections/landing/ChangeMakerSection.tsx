@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { PageContainer } from "@/components/layout/PageContainer";
+import { Reveal } from "@/components/motion/Reveal";
+import { Stagger, StaggerItem } from "@/components/motion/Stagger";
 import { LANDING_CHANGE_MAKER_ACTIONS } from "@/lib/landing";
 
 const CHESS_NUGGETS = [
@@ -87,27 +89,33 @@ export function ChangeMakerSection() {
       <div className="absolute inset-0 bg-black/83" />
 
       <PageContainer className="relative flex flex-col items-center gap-8 px-0 py-12 md:gap-10 md:py-14">
-        <div className="max-w-[911px] text-center">
+        <Reveal className="max-w-[911px] text-center">
           <h2 className="font-[family-name:var(--font-manrope)] text-[32px] font-extrabold leading-tight tracking-[-0.02em] text-white md:text-[45px] md:leading-[60px]">
             Are You Ready to Be a Change Maker?
           </h2>
           <p className="mt-4 text-xl font-medium text-[#D5D7DA]">
             Here is how you can get involved and make a change
           </p>
-        </div>
+        </Reveal>
 
         <div className="flex w-full max-w-[1256px] flex-col gap-6">
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <Stagger className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {LANDING_CHANGE_MAKER_ACTIONS.slice(0, 3).map((action) => (
-              <ActionCard key={action.title} {...action} />
+              <StaggerItem key={action.title}>
+                <ActionCard {...action} />
+              </StaggerItem>
             ))}
-          </div>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          </Stagger>
+          <Stagger className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {LANDING_CHANGE_MAKER_ACTIONS.slice(3).map((action) => (
-              <ActionCard key={action.title} {...action} />
+              <StaggerItem key={action.title}>
+                <ActionCard {...action} />
+              </StaggerItem>
             ))}
-            <ChessNuggetCard />
-          </div>
+            <StaggerItem>
+              <ChessNuggetCard />
+            </StaggerItem>
+          </Stagger>
         </div>
       </PageContainer>
     </section>
