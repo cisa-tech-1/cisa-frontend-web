@@ -1,5 +1,16 @@
+"use client";
+
 import Image from "next/image";
+import { m } from "motion/react";
 import { type ReactNode } from "react";
+import { DURATION, EASE_OUT } from "@/lib/motion";
+import { CountUp } from "@/components/motion/CountUp";
+
+const hoverLift = {
+  whileHover: { y: -6 },
+  whileTap: { scale: 0.99 },
+  transition: { duration: DURATION.fast, ease: EASE_OUT },
+} as const;
 
 type InfoCardProps = {
   image: string;
@@ -26,8 +37,17 @@ export function InfoCard({
 }: InfoCardProps) {
   if (overlay) {
     return (
-      <article className={`relative h-[424px] overflow-hidden rounded-sm ${className}`}>
-        <Image src={image} alt={imageAlt} fill className="object-cover" sizes="288px" />
+      <m.article
+        {...hoverLift}
+        className={`group relative h-[424px] overflow-hidden rounded-sm ${className}`}
+      >
+        <Image
+          src={image}
+          alt={imageAlt}
+          fill
+          className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+          sizes="288px"
+        />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
         <div className="absolute bottom-4 left-4 right-4">
           <h3 className="font-[family-name:var(--font-bricolage)] text-[28px] font-bold leading-[34px] text-white">
@@ -39,14 +59,20 @@ export function InfoCard({
             </p>
           )}
         </div>
-      </article>
+      </m.article>
     );
   }
 
   return (
-    <article className={`flex flex-col gap-3 ${className}`}>
+    <m.article {...hoverLift} className={`group flex flex-col gap-3 ${className}`}>
       <div className="relative h-[372px] overflow-hidden rounded-xl">
-        <Image src={image} alt={imageAlt} fill className="object-cover" sizes="408px" />
+        <Image
+          src={image}
+          alt={imageAlt}
+          fill
+          className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+          sizes="408px"
+        />
       </div>
       <div className="flex flex-col gap-2.5">
         <div className="flex items-center gap-2">
@@ -73,7 +99,7 @@ export function InfoCard({
           </ul>
         )}
       </div>
-    </article>
+    </m.article>
   );
 }
 
@@ -101,9 +127,15 @@ type BlogCardProps = {
 
 export function BlogCard({ image, imageAlt, title, excerpt, date, author }: BlogCardProps) {
   return (
-    <article className="flex min-w-[320px] flex-1 flex-col gap-5">
+    <m.article {...hoverLift} className="group flex min-w-[320px] flex-1 flex-col gap-5">
       <div className="relative h-60 overflow-hidden rounded-2xl">
-        <Image src={image} alt={imageAlt} fill className="object-cover" sizes="405px" />
+        <Image
+          src={image}
+          alt={imageAlt}
+          fill
+          className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+          sizes="405px"
+        />
       </div>
       <div className="flex flex-col gap-6">
         <div className="flex flex-col gap-2">
@@ -123,7 +155,7 @@ export function BlogCard({ image, imageAlt, title, excerpt, date, author }: Blog
           </span>
         </div>
       </div>
-    </article>
+    </m.article>
   );
 }
 
@@ -168,7 +200,7 @@ export function ImpactStatCard({
       className={`flex flex-col items-center justify-center gap-2.5 px-8 py-[60px] text-center ${impactVariants[variant]} ${className}`}
     >
       <p className="font-[family-name:var(--font-bricolage)] text-[40px] font-extrabold leading-none">
-        {value}
+        <CountUp value={value} />
       </p>
       <p className="max-w-[210px] text-[15px] font-medium leading-5">{label}</p>
     </div>
@@ -191,9 +223,10 @@ export function ActionCard({
   children,
 }: ActionCardProps) {
   return (
-    <a
+    <m.a
+      {...hoverLift}
       href={href}
-      className="group relative flex h-[272px] flex-col justify-between overflow-hidden rounded-[30px] p-7 text-white transition-transform hover:scale-[1.02]"
+      className="group relative flex h-[272px] flex-col justify-between overflow-hidden rounded-[30px] p-7 text-white"
       style={{ backgroundColor }}
     >
       <div className="flex flex-col gap-1">
@@ -214,7 +247,7 @@ export function ActionCard({
         </svg>
       </span>
       {children}
-    </a>
+    </m.a>
   );
 }
 

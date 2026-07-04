@@ -1,5 +1,6 @@
 import { PageContainer } from "@/components/layout/PageContainer";
 import { PaginationDots } from "@/components/ui/PaginationDots";
+import { Reveal } from "@/components/motion/Reveal";
 import { LANDING_VISION } from "@/lib/landing";
 
 export function VisionSection() {
@@ -8,7 +9,7 @@ export function VisionSection() {
   return (
     <section className="bg-background py-10 md:py-12">
       <PageContainer>
-        <div className="mx-auto flex w-full max-w-[895px] flex-col items-center justify-center gap-8 rounded-[20px] border-[0.5px] border-[#15B79E] bg-[#F0FDF9] px-6 py-8 md:h-[279px] md:flex-row md:gap-[74px] md:px-8 md:py-0">
+        <Reveal className="mx-auto flex w-full max-w-[895px] flex-col items-center justify-center gap-8 rounded-[20px] border-[0.5px] border-[#15B79E] bg-[#F0FDF9] px-6 py-8 md:h-[279px] md:flex-row md:gap-[74px] md:px-8 md:py-0">
           <div className="flex w-full max-w-[396px] flex-col items-start gap-[15px]">
             <h2 className="max-w-[389px] font-[family-name:var(--font-manrope)] text-[32px] font-extrabold leading-[44px] text-[#282828] md:text-[45px] md:leading-[55px]">
               {LANDING_VISION.title}
@@ -52,7 +53,7 @@ export function VisionSection() {
               />
             </div>
           </div>
-        </div>
+        </Reveal>
       </PageContainer>
     </section>
   );

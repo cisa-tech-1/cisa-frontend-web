@@ -1,12 +1,13 @@
 import { SectionBadge } from "@/components/about";
 import { ProgramVideoPlayer } from "@/components/programs/ProgramVideoPlayer";
+import { Reveal } from "@/components/motion/Reveal";
 import { ABOUT_VIDEO_LABEL, ABOUT_VIDEO_SRC, STORY_SECTION } from "@/lib/about";
 
 export function AboutStorySection() {
   return (
     <section className="bg-[#FAFAFA] px-5 py-20 md:px-20 md:py-[116px] md:pb-[108px]">
       <div className="mx-auto flex max-w-[1280px] flex-wrap items-start justify-center gap-16 md:gap-20">
-        <div className="flex w-full min-w-[280px] max-w-[595px] flex-1 flex-col gap-8">
+        <Reveal className="flex w-full min-w-[280px] max-w-[595px] flex-1 flex-col gap-8">
           <div className="flex flex-col gap-3">
             <SectionBadge>{STORY_SECTION.badge}</SectionBadge>
 
@@ -32,11 +33,11 @@ export function AboutStorySection() {
               </p>
             ))}
           </div>
-        </div>
+        </Reveal>
 
-        <div className="w-full min-w-[280px] max-w-[557px] flex-1">
+        <Reveal delay={0.15} className="w-full min-w-[280px] max-w-[557px] flex-1">
           <ProgramVideoPlayer src={ABOUT_VIDEO_SRC} label={ABOUT_VIDEO_LABEL} />
-        </div>
+        </Reveal>
       </div>
     </section>
   );

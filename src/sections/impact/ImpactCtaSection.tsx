@@ -1,13 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { PageContainer } from "@/components/layout/PageContainer";
+import { Reveal } from "@/components/motion/Reveal";
 import { IMPACT_CTA } from "@/lib/impact";
 
 export function ImpactCtaSection() {
   return (
     <section className="bg-white py-16 md:py-20">
       <PageContainer>
-        <div className="overflow-hidden rounded-3xl bg-[#107569] shadow-xl">
+        <Reveal className="overflow-hidden rounded-3xl bg-[#107569] shadow-xl">
           <div className="flex min-h-[400px] flex-col md:flex-row md:items-stretch">
             <div className="flex flex-1 flex-col justify-center gap-[29px] p-8 md:p-16">
               <div className="flex max-w-[608px] flex-col gap-5">
@@ -41,7 +42,7 @@ export function ImpactCtaSection() {
               />
             </div>
           </div>
-        </div>
+        </Reveal>
       </PageContainer>
     </section>
   );

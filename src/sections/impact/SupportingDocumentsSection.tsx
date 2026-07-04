@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { PdfViewerModal } from "@/components/impact/PdfViewerModal";
 import { PageContainer } from "@/components/layout/PageContainer";
+import { Reveal } from "@/components/motion/Reveal";
+import { Stagger, StaggerItem } from "@/components/motion/Stagger";
 import { SUPPORTING_DOCUMENTS } from "@/lib/impact";
 
 function PdfIcon() {
@@ -33,7 +35,7 @@ export function SupportingDocumentsSection() {
     <>
       <section className="bg-teal-500 py-20 md:py-[138px]">
         <PageContainer className="flex flex-col gap-10">
-          <div className="max-w-3xl">
+          <Reveal className="max-w-3xl">
             <span className="inline-flex items-center gap-1.5 rounded-2xl border border-[#E9EAEB] bg-[#FAFAFA] px-3 py-1 text-sm font-medium text-[#414651]">
               <span className="size-1.5 rounded-full bg-[#717680]" />
               Financial transparency
@@ -45,11 +47,11 @@ export function SupportingDocumentsSection() {
               Access our audited financial statements and annual reports for full transparency
               into how we steward every donation.
             </p>
-          </div>
+          </Reveal>
 
-          <div className="flex flex-col gap-6">
+          <Stagger className="flex flex-col gap-6">
             {SUPPORTING_DOCUMENTS.map((doc, index) => (
-              <div key={doc.title}>
+              <StaggerItem key={doc.title}>
                 <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
                   <div className="flex flex-wrap items-center gap-3">
                     <PdfIcon />
@@ -84,9 +86,9 @@ export function SupportingDocumentsSection() {
                 {index < SUPPORTING_DOCUMENTS.length - 1 && (
                   <div className="mt-6 h-px w-full bg-[#E9EAEB]/40" />
                 )}
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
         </PageContainer>
       </section>
 

@@ -1,12 +1,14 @@
 import { PageContainer } from "@/components/layout/PageContainer";
 import { ProgramFeatureCard } from "@/components/programs";
+import { Reveal } from "@/components/motion/Reveal";
+import { Stagger, StaggerItem } from "@/components/motion/Stagger";
 import { CASTLE_PATHWAY_CARDS } from "@/lib/programs";
 
 export function CastlePathwaysSection() {
   return (
     <section className="bg-[#FCFCFC] py-16 md:py-20">
       <PageContainer>
-        <div className="mb-[50px] text-center">
+        <Reveal className="mb-[50px] text-center">
           <h2 className="font-[family-name:var(--font-manrope)] text-[28px] font-extrabold leading-[55px] text-black">
             The <span className="text-[#15B79E]">C.A.S.T.L.E</span> Pathways
           </h2>
@@ -14,13 +16,15 @@ export function CastlePathwaysSection() {
             CISA delivers its programs through two distinct delivery pathways — each purposefully
             designed for a mode of engagement
           </p>
-        </div>
+        </Reveal>
 
-        <div className="grid gap-[21px] md:grid-cols-2">
+        <Stagger className="grid gap-[21px] md:grid-cols-2">
           {CASTLE_PATHWAY_CARDS.map((card) => (
-            <ProgramFeatureCard key={card.title} {...card} />
+            <StaggerItem key={card.title} className="h-full">
+              <ProgramFeatureCard {...card} />
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
       </PageContainer>
     </section>
   );

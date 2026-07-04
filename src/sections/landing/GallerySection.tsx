@@ -5,6 +5,7 @@ import Image from "next/image";
 import { PageContainer } from "@/components/layout/PageContainer";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Button } from "@/components/ui/Button";
+import { Stagger, StaggerItem } from "@/components/motion/Stagger";
 import { LANDING_GALLERY_FILTERS, LANDING_GALLERY_IMAGES } from "@/lib/landing";
 
 export function GallerySection() {
@@ -41,23 +42,24 @@ export function GallerySection() {
           ))}
         </div>
 
-        <div className="columns-1 gap-4 sm:columns-2 lg:columns-4">
+        <Stagger className="columns-1 gap-4 sm:columns-2 lg:columns-4">
           {LANDING_GALLERY_IMAGES.map((img, i) => (
-            <div
-              key={i}
-              className={`relative mb-4 w-full break-inside-avoid overflow-hidden rounded-sm ${img.h}`}
-              style={{ transform: `rotate(${img.rotation}deg)` }}
-            >
-              <Image
-                src={img.src}
-                alt={img.alt}
-                fill
-                className="object-cover"
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-              />
-            </div>
+            <StaggerItem key={i} className="mb-4 break-inside-avoid">
+              <div
+                className={`group relative w-full overflow-hidden rounded-sm ${img.h}`}
+                style={{ transform: `rotate(${img.rotation}deg)` }}
+              >
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                />
+              </div>
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
 
         <div className="mt-8 flex justify-center">
           <Button href="/gallery" variant="primary" size="lg" font="jost" className="h-[60px] max-w-[332px]">

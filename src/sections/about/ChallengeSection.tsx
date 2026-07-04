@@ -1,21 +1,24 @@
 import Image from "next/image";
 import { ChallengeCard, SectionIntro } from "@/components/about";
+import { Reveal } from "@/components/motion/Reveal";
 import { CHALLENGE_ITEMS } from "@/lib/about";
 
 export function ChallengeSection() {
   return (
     <section className="bg-teal-500 px-5 py-16 md:px-20 md:pb-[100px] md:pt-[61px]">
       <div className="mx-auto flex max-w-[1280px] flex-col items-center gap-11 md:gap-[45px]">
-        <SectionIntro
-          badge="Challenge"
-          heading="The Challenge We Address"
-          dark
-          centered
-          headingFont="manrope"
-          headingClassName="text-[36px] font-bold leading-[44px]"
-        />
+        <Reveal>
+          <SectionIntro
+            badge="Challenge"
+            heading="The Challenge We Address"
+            dark
+            centered
+            headingFont="manrope"
+            headingClassName="text-[36px] font-bold leading-[44px]"
+          />
+        </Reveal>
 
-        <div className="flex w-full flex-col gap-3 lg:flex-row">
+        <Reveal className="flex w-full flex-col gap-3 lg:flex-row">
           <div className="grid flex-1 grid-cols-1 gap-3 sm:grid-cols-2">
             <div className="flex flex-col gap-3">
               <ChallengeCard {...CHALLENGE_ITEMS[0]} />
@@ -49,7 +52,7 @@ export function ChallengeSection() {
               />
             </div>
           </aside>
-        </div>
+        </Reveal>
       </div>
     </section>
   );
