@@ -21,13 +21,13 @@ export function MissionSection() {
       />
 
       <div className="pointer-events-none absolute left-1/2 top-[15px] -translate-x-1/2" aria-hidden>
-        <Parallax offset={-30}>
+        <Parallax offset={-180}>
           <Image
             src="/images/cisa-fila-pawn.png"
             alt=""
             width={769}
-            height={620}
-            className="h-[620px] w-[769px] max-w-none object-contain"
+            height={720}
+            className="h-[720px] w-[769px] max-w-none object-contain opacity-30"
           />
         </Parallax>
       </div>
