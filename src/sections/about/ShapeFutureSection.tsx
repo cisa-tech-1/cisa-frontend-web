@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { ShapeFutureCard } from "@/components/about";
 import { PageContainer } from "@/components/layout/PageContainer";
+import { Reveal } from "@/components/motion/Reveal";
+import { Stagger, StaggerItem } from "@/components/motion/Stagger";
 import { SHAPE_FUTURE_CARDS } from "@/lib/about";
 
 export function ShapeFutureSection() {
@@ -18,7 +20,7 @@ export function ShapeFutureSection() {
           <div className="absolute inset-0 bg-black/83" />
 
           <div className="relative mx-auto flex max-w-[1256px] flex-col items-center gap-[60px] px-5 py-16 md:px-8 md:py-[59px]">
-            <div className="flex max-w-[911px] flex-col items-center gap-[19px] text-center">
+            <Reveal className="flex max-w-[911px] flex-col items-center gap-[19px] text-center">
               <h2 className="font-[family-name:var(--font-manrope)] text-[36px] font-bold leading-[60px] tracking-[-0.02em] text-white md:text-[48px]">
                 Shape the future.{" "}
                 <span className="text-teal-500">One move at a time</span>
@@ -26,13 +28,15 @@ export function ShapeFutureSection() {
               <p className="font-[family-name:var(--font-manrope)] text-xl font-medium leading-8 text-[#D5D7DA]">
                 Different Ways you can get involved and make a change
               </p>
-            </div>
+            </Reveal>
 
-            <div className="flex w-full flex-wrap justify-center gap-[25px]">
+            <Stagger className="flex w-full flex-wrap justify-center gap-[25px]">
               {SHAPE_FUTURE_CARDS.map((card) => (
-                <ShapeFutureCard key={card.title} {...card} />
+                <StaggerItem key={card.title}>
+                  <ShapeFutureCard {...card} />
+                </StaggerItem>
               ))}
-            </div>
+            </Stagger>
           </div>
         </div>
       </PageContainer>

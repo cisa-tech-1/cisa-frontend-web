@@ -5,6 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { CampaignCard } from "@/components/donations/CampaignCard";
 import { DonationsContainer } from "@/components/donations/DonationsContainer";
+import { Reveal } from "@/components/motion/Reveal";
+import { Stagger, StaggerItem } from "@/components/motion/Stagger";
 import { CAMPAIGN_FILTERS, CAMPAIGNS } from "@/lib/donations";
 
 export function CampaignDonationsSection() {
@@ -15,7 +17,7 @@ export function CampaignDonationsSection() {
   return (
     <section className="bg-[#FCFCFC] pb-[135px]">
       <DonationsContainer className="flex flex-col gap-[45px]">
-        <div className="flex max-w-[751px] flex-col gap-[23px]">
+        <Reveal className="flex max-w-[751px] flex-col gap-[23px]">
           <div className="flex flex-col gap-4">
             <h2 className="font-[family-name:var(--font-manrope)] text-[48px] font-semibold leading-[1.2] text-[#282828]">
               Other Means to Donate
@@ -52,14 +54,16 @@ export function CampaignDonationsSection() {
               );
             })}
           </div>
-        </div>
+        </Reveal>
 
         <div className="flex flex-col items-center gap-[72px]">
-          <div className="grid w-full grid-cols-1 justify-items-center gap-[25px] md:grid-cols-2 lg:grid-cols-3">
+          <Stagger className="grid w-full grid-cols-1 justify-items-center gap-[25px] md:grid-cols-2 lg:grid-cols-3">
             {CAMPAIGNS.map((campaign) => (
-              <CampaignCard key={campaign.id} {...campaign} />
+              <StaggerItem key={campaign.id}>
+                <CampaignCard {...campaign} />
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
 
           <Link
             href="#"

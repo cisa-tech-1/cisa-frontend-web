@@ -1,6 +1,8 @@
 import { BlogCard } from "@/components/cards";
 import { PageContainer } from "@/components/layout/PageContainer";
 import { Badge } from "@/components/ui/Badge";
+import { Reveal } from "@/components/motion/Reveal";
+import { Stagger, StaggerItem } from "@/components/motion/Stagger";
 import { LANDING_BLOG_POSTS } from "@/lib/landing";
 import Link from "next/link";
 
@@ -8,18 +10,20 @@ export function BlogSection() {
   return (
     <section className="bg-white pb-24 pt-12 md:pb-32 md:pt-16">
       <PageContainer>
-        <div className="mb-8 flex flex-col items-center gap-[18px] text-center">
+        <Reveal className="mb-8 flex flex-col items-center gap-[18px] text-center">
           <Badge variant="pill">Blog</Badge>
           <h2 className="font-[family-name:var(--font-manrope)] text-[32px] font-extrabold leading-[44px] tracking-[-0.02em] text-[#181D27] md:text-[45px]">
             Latest King Maker Highlights
           </h2>
-        </div>
+        </Reveal>
 
-        <div className="flex flex-wrap gap-6 md:gap-8">
+        <Stagger className="flex flex-wrap gap-6 md:gap-8">
           {LANDING_BLOG_POSTS.map((post) => (
-            <BlogCard key={post.title} {...post} />
+            <StaggerItem key={post.title} className="flex min-w-[320px] flex-1">
+              <BlogCard {...post} />
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
 
         <div className="mt-12 flex justify-center">
           <Link

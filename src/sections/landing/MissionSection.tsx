@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { PageContainer } from "@/components/layout/PageContainer";
 import { Button } from "@/components/ui/Button";
+import { Reveal } from "@/components/motion/Reveal";
+import { Parallax } from "@/components/motion/Parallax";
 
 const heartIcon = (
   <Image src="/images/svg/heart.svg" alt="" width={16} height={14} aria-hidden />
@@ -19,17 +21,19 @@ export function MissionSection() {
       />
 
       <div className="pointer-events-none absolute left-1/2 top-[15px] -translate-x-1/2" aria-hidden>
-        <Image
-          src="/images/cisa-fila-pawn.png"
-          alt=""
-          width={769}
-          height={620}
-          className="h-[620px] w-[769px] max-w-none object-contain"
-        />
+        <Parallax offset={-180}>
+          <Image
+            src="/images/cisa-fila-pawn.png"
+            alt=""
+            width={769}
+            height={720}
+            className="h-[720px] w-[769px] max-w-none object-contain opacity-30"
+          />
+        </Parallax>
       </div>
 
       <PageContainer className="relative flex h-[618px] flex-col items-center gap-[46px] pt-[114px] text-center">
-        <div className="flex w-full max-w-[924px] flex-col items-center gap-[33px]">
+        <Reveal className="flex w-full max-w-[924px] flex-col items-center gap-[33px]">
           <span className="inline-flex h-[38px] w-[240px] items-center justify-center gap-3 rounded-[10px] bg-[#FFDF5E] py-1 pl-1 pr-2.5 shadow-[0px_1px_2px_rgba(10,13,18,0.05)]">
             <Image
               src="/images/svg/black-knight.svg"
@@ -49,19 +53,21 @@ export function MissionSection() {
             <span className="text-[#F87C22]">10 million</span> children in marginalized communities
             across Africa, using chess as a focal point.
           </p>
-        </div>
+        </Reveal>
 
-        <Button
-          href="/donate"
-          variant="primary"
-          size="lg"
-          font="jost"
-          icon={heartIcon}
-          iconPosition="right"
-          className="h-[60px] w-full max-w-[332px] gap-[5px] text-xl font-semibold leading-7"
-        >
-          Make a Donation
-        </Button>
+        <Reveal delay={0.15}>
+          <Button
+            href="/donate"
+            variant="primary"
+            size="lg"
+            font="jost"
+            icon={heartIcon}
+            iconPosition="right"
+            className="h-[60px] w-full max-w-[332px] gap-[5px] text-xl font-semibold leading-7"
+          >
+            Make a Donation
+          </Button>
+        </Reveal>
       </PageContainer>
     </section>
   );

@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { DonationOptionCard } from "@/components/donations/DonationOptionCard";
 import { DonationsContainer } from "@/components/donations/DonationsContainer";
+import { Reveal } from "@/components/motion/Reveal";
 import { DONATION_HERO, DONATION_OPTIONS } from "@/lib/donations";
 
 export function DonationsHeroSection() {
@@ -24,7 +25,7 @@ export function DonationsHeroSection() {
         </div>
 
         <div className="mt-14 flex flex-col gap-10 lg:mt-16 lg:flex-row lg:items-start lg:justify-between">
-          <div className="flex max-w-[814px] flex-col">
+          <Reveal className="flex max-w-[814px] flex-col">
             <div className="max-w-[489px]">
               <h2 className="font-[family-name:var(--font-manrope)] text-[48px] font-semibold leading-[1.2] text-[#282828]">
                 {DONATION_HERO.title}
@@ -37,9 +38,12 @@ export function DonationsHeroSection() {
                 <DonationOptionCard key={option.id} {...option} />
               ))}
             </div>
-          </div>
+          </Reveal>
 
-          <div className="relative mx-auto h-[320px] w-full max-w-[420px] shrink-0 overflow-hidden rounded-xl sm:h-[400px] lg:mx-0 lg:h-[481px]">
+          <Reveal
+            delay={0.15}
+            className="relative mx-auto h-[320px] w-full max-w-[420px] shrink-0 overflow-hidden rounded-xl sm:h-[400px] lg:mx-0 lg:h-[481px]"
+          >
             <Image
               src={DONATION_HERO.image}
               alt="A young girl holding a chess piece"
@@ -48,7 +52,7 @@ export function DonationsHeroSection() {
               sizes="420px"
               priority
             />
-          </div>
+          </Reveal>
         </div>
       </DonationsContainer>
     </section>

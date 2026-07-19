@@ -1,5 +1,6 @@
 import { FOREIGN_BANK_DETAILS, LOCAL_BANK_DETAILS } from "@/lib/donations";
 import { DonationsContainer } from "@/components/donations/DonationsContainer";
+import { Stagger, StaggerItem } from "@/components/motion/Stagger";
 
 type BankDetail = { label: string; value: string };
 
@@ -30,9 +31,15 @@ function BankCard({ title, details }: { title: string; details: readonly BankDet
 export function BankTransferSection() {
   return (
     <section className="bg-[#FCFCFC] pb-6">
-      <DonationsContainer className="flex flex-col gap-6 md:flex-row">
-        <BankCard title="Local Bank Transfer ₦" details={LOCAL_BANK_DETAILS} />
-        <BankCard title="Foreign Wire Transfer $" details={FOREIGN_BANK_DETAILS} />
+      <DonationsContainer>
+        <Stagger className="flex flex-col gap-6 md:flex-row">
+          <StaggerItem className="flex flex-1">
+            <BankCard title="Local Bank Transfer ₦" details={LOCAL_BANK_DETAILS} />
+          </StaggerItem>
+          <StaggerItem className="flex flex-1">
+            <BankCard title="Foreign Wire Transfer $" details={FOREIGN_BANK_DETAILS} />
+          </StaggerItem>
+        </Stagger>
       </DonationsContainer>
     </section>
   );

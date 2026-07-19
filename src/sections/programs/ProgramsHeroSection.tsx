@@ -2,6 +2,7 @@ import { ProgramsNavbar } from "@/components/layout/ProgramsNavbar";
 import { PageContainer } from "@/components/layout/PageContainer";
 import { ImageCollage } from "@/components/programs";
 import { Button } from "@/components/ui/Button";
+import { Reveal } from "@/components/motion/Reveal";
 import { HERO_COLLAGE_IMAGES } from "@/lib/programs";
 
 const HERO_BODY =
@@ -13,7 +14,7 @@ export function ProgramsHeroSection() {
       <ProgramsNavbar />
 
       <PageContainer className="flex flex-col items-center gap-16 py-12 lg:flex-row lg:items-center lg:gap-[120px] lg:py-16">
-        <div className="flex w-full max-w-[570px] flex-col gap-[30px]">
+        <Reveal className="flex w-full max-w-[570px] flex-col gap-[30px]">
           <div className="flex flex-col gap-1">
             <span className="inline-flex w-fit items-center gap-1.5 rounded-2xl border border-[#E9EAEB] bg-[#FAFAFA] px-3 py-1 text-sm font-medium text-[#414651]">
               <span className="size-1.5 rounded-full bg-[#717680]" />
@@ -33,9 +34,11 @@ export function ProgramsHeroSection() {
           <Button href="#program-options" variant="primary" size="md" font="jost" className="w-fit font-semibold px-12">
             Explore
           </Button>
-        </div>
+        </Reveal>
 
-        <ImageCollage images={HERO_COLLAGE_IMAGES} />
+        <Reveal delay={0.15}>
+          <ImageCollage images={HERO_COLLAGE_IMAGES} />
+        </Reveal>
       </PageContainer>
     </section>
   );

@@ -1,11 +1,17 @@
 import Image from "next/image";
 import { PageContainer } from "@/components/layout/PageContainer";
 import { Button } from "@/components/ui/Button";
+import { Reveal } from "@/components/motion/Reveal";
+import { Parallax } from "@/components/motion/Parallax";
+import { Stagger, StaggerItem } from "@/components/motion/Stagger";
 import { LANDING_APPROACH_BLOCKS } from "@/lib/landing";
 
 function ListItem({ children }: { children: string }) {
   return (
-    <li className="flex items-center gap-2 font-[family-name:var(--font-manrope)] text-lg font-medium leading-[35px] tracking-[-0.02em] text-[#5A5A5A]">
+    <StaggerItem
+      as="li"
+      className="flex items-center gap-2 font-[family-name:var(--font-manrope)] text-lg font-medium leading-[35px] tracking-[-0.02em] text-[#5A5A5A]"
+    >
       <Image
         src="/images/svg/pointer.svg"
         alt=""
@@ -15,7 +21,7 @@ function ListItem({ children }: { children: string }) {
         className="shrink-0"
       />
       {children}
-    </li>
+    </StaggerItem>
   );
 }
 
@@ -24,14 +30,19 @@ type ApproachBlockProps = (typeof LANDING_APPROACH_BLOCKS)[keyof typeof LANDING_
 function ApproachBlockImage({ image, imageAlt }: { image: string; imageAlt: string }) {
   return (
     <div className="relative w-full max-w-[498px] aspect-[498/372]">
-      <Image
-        src="/images/rook.png"
-        alt=""
-        width={200}
-        height={200}
-        aria-hidden
+      <Parallax
+        offset={-25}
         className="pointer-events-none absolute left-0 top-[41.4%] z-0 w-[40.2%] max-w-[200px]"
-      />
+      >
+        <Image
+          src="/images/rook.png"
+          alt=""
+          width={200}
+          height={200}
+          aria-hidden
+          className="w-full"
+        />
+      </Parallax>
 
       <div className="absolute bottom-0 left-[17.9%] top-0 z-10 w-[82.1%] overflow-hidden rounded-[12px]">
         <Image src={image} alt={imageAlt} fill className="object-cover" sizes="(max-width: 1024px) 80vw, 408px" />
@@ -54,11 +65,11 @@ function ApproachBlock({ accent, title, image, imageAlt, features }: ApproachBlo
             {title}
           </h3>
         </div>
-        <ul className="flex flex-col">
+        <Stagger as="ul" className="flex flex-col">
           {features.map((feature) => (
             <ListItem key={feature}>{feature}</ListItem>
           ))}
-        </ul>
+        </Stagger>
       </div>
     </article>
   );
@@ -72,7 +83,7 @@ export function ApproachSection() {
       <PageContainer className="relative">
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-x-12 xl:gap-x-16">
           <div className="flex flex-col gap-10 lg:gap-14">
-            <div className="max-w-[448px]">
+            <Reveal className="max-w-[448px]">
               <h2 className="font-[family-name:var(--font-manrope)] text-[36px] font-extrabold leading-[44px] text-[#181D27] md:text-[45px] md:leading-[55px]">
                 Our Approach To Sustainable Impact
               </h2>
@@ -90,7 +101,7 @@ export function ApproachSection() {
               >
                 Learn More
               </Button>
-            </div>
+            </Reveal>
 
             <ApproachBlock {...st} />
           </div>

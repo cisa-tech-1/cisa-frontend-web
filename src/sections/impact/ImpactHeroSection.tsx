@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { PageContainer } from "@/components/layout/PageContainer";
 import { ProgramsNavbar } from "@/components/layout/ProgramsNavbar";
+import { Reveal } from "@/components/motion/Reveal";
 import { IMPACT_HERO } from "@/lib/impact";
 
 export function ImpactHeroSection() {
@@ -9,7 +10,7 @@ export function ImpactHeroSection() {
       <ProgramsNavbar className="bg-[#FAFAF7]" />
 
       <PageContainer className="flex flex-col items-center gap-12 py-16 md:flex-row md:items-center md:justify-between md:gap-[120px] md:py-24">
-        <div className="flex w-full max-w-[570px] flex-col gap-[30px]">
+        <Reveal className="flex w-full max-w-[570px] flex-col gap-[30px]">
           <div className="flex flex-col gap-1">
             <span className="inline-flex w-fit items-center gap-1.5 rounded-2xl border border-[#E9EAEB] bg-[#FAFAFA] px-3 py-1 text-sm font-medium text-[#414651]">
               <span className="size-1.5 rounded-full bg-[#717680]" />
@@ -25,9 +26,9 @@ export function ImpactHeroSection() {
               </p>
             </div>
           </div>
-        </div>
+        </Reveal>
 
-        <div className="relative mx-auto w-full max-w-[491px] shrink-0">
+        <Reveal delay={0.15} className="relative mx-auto w-full max-w-[491px] shrink-0">
           <div className="absolute inset-0 translate-x-3 translate-y-3 rounded-md bg-[#FB6514]" />
           <div className="relative overflow-hidden rounded-md border-[3px] border-[#FB6514]">
             <div className="relative aspect-[475/438] w-full">
@@ -41,7 +42,7 @@ export function ImpactHeroSection() {
               />
             </div>
           </div>
-        </div>
+        </Reveal>
       </PageContainer>
     </section>
   );

@@ -3,7 +3,7 @@
 import { createContext, useContext, useRef, type ReactNode } from "react";
 import Image from "next/image";
 import {
-  motion,
+  m,
   useMotionValue,
   useScroll,
   useTransform,
@@ -35,12 +35,12 @@ export function ChessboardStatsRow({
   const y = useTransform(source, [start, start + 0.18], [28, 0]);
 
   return (
-    <motion.div
+    <m.div
       style={reduceMotion || !progress ? undefined : { opacity, y }}
       className={className}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -58,20 +58,20 @@ export function ChessboardReveal({ children }: { children: ReactNode }) {
 
   return (
     <div ref={ref} className="relative mx-auto max-w-[893px]">
-      <motion.div
+      <m.div
         style={reduceMotion ? { y: "-50%" } : { x: wallLeftX, y: "-50%" }}
         className="pointer-events-none absolute -left-[110px] top-1/2 hidden w-[120px] opacity-90 lg:block xl:-left-[180px] xl:w-[161px]"
         aria-hidden
       >
         <Image src={BOX_WALL_LEFT} alt="" width={161} height={584} className="h-auto w-full" />
-      </motion.div>
-      <motion.div
+      </m.div>
+      <m.div
         style={reduceMotion ? { y: "-50%" } : { x: wallRightX, y: "-50%" }}
         className="pointer-events-none absolute -right-[110px] top-1/2 hidden w-[120px] opacity-90 lg:block xl:-right-[180px] xl:w-[171px]"
         aria-hidden
       >
         <Image src={BOX_WALL_RIGHT} alt="" width={171} height={578} className="h-auto w-full" />
-      </motion.div>
+      </m.div>
 
       <div
         className="pointer-events-none absolute -inset-x-[62px] -top-[62px] bottom-0 hidden sm:block"

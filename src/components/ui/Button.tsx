@@ -1,6 +1,27 @@
+"use client";
+
 import Link from "next/link";
+import { m } from "motion/react";
 import type { CSSProperties, ReactNode } from "react";
+import { DURATION, EASE_OUT } from "@/lib/motion";
 import { BUTTON_SKEUOMORPHIC_SHADOW } from "./buttonStyles";
+
+const MotionLink = m.create(Link);
+
+// Grows slightly on hover, dips on press, springs back on release. Named
+// variants let the active state ("hover"/"tap") propagate to the icon below.
+// All suppressed for users who prefer reduced motion via the app MotionConfig.
+const motionProps = {
+  initial: "rest",
+  whileHover: "hover",
+  whileTap: "tap",
+  variants: {
+    rest: { scale: 1 },
+    hover: { scale: 1.03 },
+    tap: { scale: 0.96 },
+  },
+  transition: { duration: DURATION.fast, ease: EASE_OUT },
+} as const;
 
 type ButtonVariant = "primary" | "outline" | "secondary" | "custom";
 type ButtonSize = "sm" | "md" | "lg";
@@ -59,25 +80,48 @@ export function Button({
     variant === "custom" ? BUTTON_SKEUOMORPHIC_SHADOW : variantStyles[variant];
   const classes = `inline-flex items-center justify-center transition-colors ${fontStyles[font]} ${sizeStyles[size]} ${variantClass} ${className}`;
 
+  // Slides the icon toward its edge while the button is hovered. The active
+  // parent state ("hover") propagates to this child automatically.
+  const iconVariants = {
+    rest: { x: 0 },
+    hover: {
+      x: iconPosition === "right" ? 3 : -3,
+      transition: { duration: DURATION.fast, ease: EASE_OUT },
+    },
+  };
+
+  const iconEl = icon ? (
+    <m.span variants={iconVariants} className="inline-flex">
+      {icon}
+    </m.span>
+  ) : null;
+
   const content = (
     <>
-      {icon && iconPosition === "left" ? icon : null}
+      {iconPosition === "left" ? iconEl : null}
       {children}
-      {icon && iconPosition === "right" ? icon : null}
+      {iconPosition === "right" ? iconEl : null}
     </>
   );
 
   if (href) {
     return (
-      <Link href={href} className={classes} style={style} target={target} rel={rel}>
+      <MotionLink
+        {...motionProps}
+        href={href}
+        className={classes}
+        style={style}
+        target={target}
+        rel={rel}
+      >
         {content}
-      </Link>
+      </MotionLink>
     );
   }
 
   return (
-    <button type={type} onClick={onClick} className={classes} style={style}>
+    <m.button {...motionProps} type={type} onClick={onClick} className={classes} style={style}>
       {content}
-    </button>
+    </m.button>
   );
 }
