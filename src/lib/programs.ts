@@ -1,5 +1,5 @@
 export const PROGRAMS_NAV_LINKS = [
-  { label: "Who Are We", href: "/about" },
+  { label: "Who We Are", href: "/about" },
   { label: "Our Programs", href: "/programs" },
   { label: "Our Impact", href: "/impact" },
   { label: "Why Chess", href: "/why-chess" },
@@ -172,7 +172,7 @@ export type ProgramOptionId = (typeof PROGRAM_OPTIONS)[number]["id"];
 
 export const SHAPE_FUTURE_OPTIONS = [
   {
-    title: "Sponsor A Cohort",
+    title: "Sponsor A Project",
     description:
       "Become a superhero to the kids, and help bring the joy of chess to underprivileged communities.",
     buttonLabel: "Donate Now",
