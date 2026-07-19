@@ -2,11 +2,12 @@
 
 import { Cell, Pie, PieChart, ResponsiveContainer } from "recharts";
 import { SECTOR_IMPACT_DATA } from "@/lib/impact";
+import { ChartReveal } from "@/components/motion/ChartReveal";
 
 export function SectorPieChart() {
   return (
     <div className="flex flex-col items-center gap-6 sm:flex-row">
-      <div className="h-[200px] w-[200px] shrink-0">
+      <ChartReveal className="h-[200px] w-[200px] shrink-0">
         <ResponsiveContainer width="100%" height="100%">
           <PieChart>
             <Pie
@@ -24,7 +25,7 @@ export function SectorPieChart() {
             </Pie>
           </PieChart>
         </ResponsiveContainer>
-      </div>
+      </ChartReveal>
       <div className="flex flex-col gap-1">
         {SECTOR_IMPACT_DATA.map((item) => (
           <div key={item.name} className="flex items-center gap-2">
