@@ -2,6 +2,7 @@
 
 import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
 import { BUDGET_CATEGORIES, TOTAL_FUNDING } from "@/lib/impact";
+import { ChartReveal } from "@/components/motion/ChartReveal";
 
 const gaugeData = [
   { name: "outer", value: 72, color: "#FB6514" },
@@ -16,7 +17,7 @@ const innerData = [
 export function BudgetGaugeChart() {
   return (
     <div className="flex flex-col gap-6 md:flex-row md:items-center">
-      <div className="relative mx-auto h-[240px] w-[240px] shrink-0">
+      <ChartReveal className="relative mx-auto h-[240px] w-[240px] shrink-0">
         <ResponsiveContainer width="100%" height="100%">
           <PieChart>
             <Pie
@@ -57,7 +58,7 @@ export function BudgetGaugeChart() {
             {TOTAL_FUNDING}
           </p>
         </div>
-      </div>
+      </ChartReveal>
 
       <div className="grid flex-1 grid-cols-2 gap-x-8 gap-y-4 sm:grid-cols-3">
         {BUDGET_CATEGORIES.map((item) => (

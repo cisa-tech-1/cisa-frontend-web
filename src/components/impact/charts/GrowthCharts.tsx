@@ -12,10 +12,11 @@ import {
   YAxis,
 } from "recharts";
 import { IMPACT_GROWTH_DATA, REVENUE_GROWTH_DATA } from "@/lib/impact";
+import { ChartReveal } from "@/components/motion/ChartReveal";
 
 export function RevenueGrowthChart() {
   return (
-    <div className="h-[250px] w-full">
+    <ChartReveal className="h-[250px] w-full">
       <div className="mb-4 flex flex-wrap items-center justify-end gap-4 text-xs text-[#4E5969]">
         <span className="flex items-center gap-1">
           <span className="h-0.5 w-2 bg-orange-500" />
@@ -47,7 +48,7 @@ export function RevenueGrowthChart() {
           />
         </LineChart>
       </ResponsiveContainer>
-    </div>
+    </ChartReveal>
   );
 }
 
@@ -58,7 +59,7 @@ export function ImpactGrowthChart() {
   }));
 
   return (
-    <div className="h-[252px] w-full">
+    <ChartReveal className="h-[252px] w-full">
       <ResponsiveContainer width="100%" height="100%">
         <BarChart data={data} margin={{ top: 8, right: 8, left: 0, bottom: 0 }}>
           <CartesianGrid strokeDasharray="4 4" stroke="#E5E6EB" vertical={false} />
@@ -77,6 +78,6 @@ export function ImpactGrowthChart() {
           <Bar dataKey="value" fill="#FB6514" radius={[4, 4, 0, 0]} barSize={22} />
         </BarChart>
       </ResponsiveContainer>
-    </div>
+    </ChartReveal>
   );
 }

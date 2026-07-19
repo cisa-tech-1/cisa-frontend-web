@@ -10,6 +10,7 @@ import {
   YAxis,
 } from "recharts";
 import { FINANCIAL_STATUS_DATA } from "@/lib/impact";
+import { ChartReveal } from "@/components/motion/ChartReveal";
 
 export function FinancialStatusChart() {
   const data = FINANCIAL_STATUS_DATA.map((item) => ({
@@ -18,7 +19,7 @@ export function FinancialStatusChart() {
   }));
 
   return (
-    <div className="h-[252px] w-full">
+    <ChartReveal className="h-[252px] w-full">
       <ResponsiveContainer width="100%" height="100%">
         <BarChart
           data={data}
@@ -46,6 +47,6 @@ export function FinancialStatusChart() {
           <Bar dataKey="value" fill="#FB6514" radius={[0, 4, 4, 0]} barSize={37} />
         </BarChart>
       </ResponsiveContainer>
-    </div>
+    </ChartReveal>
   );
 }
