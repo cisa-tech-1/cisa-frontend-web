@@ -10,7 +10,7 @@ function BankDetailStack({ details }: { details: readonly BankDetail[] }) {
       {details.map(({ label, value }) => (
         <div key={label} className="flex flex-col gap-1">
           <span>{label}</span>
-          <span>{value}</span>
+          <span className="font-bold">{value}</span>
         </div>
       ))}
     </div>

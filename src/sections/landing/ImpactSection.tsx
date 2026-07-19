@@ -1,7 +1,5 @@
-import Image from "next/image";
 import { ImpactStatCard } from "@/components/cards";
-import { Parallax } from "@/components/motion/Parallax";
-import { Stagger, StaggerItem } from "@/components/motion/Stagger";
+import { ChessboardReveal, ChessboardStatsRow } from "@/components/landing/ChessboardReveal";
 
 const STATS = [
   { value: "36,000+", label: "Hours of chess training delivered", variant: "brown" as const },
@@ -32,50 +30,27 @@ const STATS = [
 
 export function ImpactSection() {
   return (
-    <section className="bg-background py-12 md:py-16">
+    <section className="overflow-x-clip bg-background py-12 md:py-16">
       <div className="mx-auto max-w-[1301px] px-5">
-        <div className="relative mx-auto flex max-w-[893px] items-center justify-center">
-          <div className="pointer-events-none absolute -left-8 top-1/2 hidden -translate-y-1/2 lg:block xl:-left-24">
-            <Parallax offset={-30}>
-              <Image
-                src="/images/bishop.png"
-                alt=""
-                width={161}
-                height={584}
-                aria-hidden
-                className="h-auto w-[120px] opacity-90 xl:w-[161px]"
-              />
-            </Parallax>
-          </div>
-          <div className="pointer-events-none absolute -right-8 top-1/2 hidden -translate-y-1/2 lg:block xl:-right-24">
-            <Parallax offset={30}>
-              <Image
-                src="/images/rook.png"
-                alt=""
-                width={171}
-                height={578}
-                aria-hidden
-                className="h-auto w-[120px] opacity-90 xl:w-[171px]"
-              />
-            </Parallax>
-          </div>
-
-          <Stagger className="grid w-full grid-cols-1 gap-0 sm:grid-cols-3">
-            {STATS.map((stat) => (
-              <StaggerItem
-                key={stat.value}
-                className={stat.wide ? "sm:col-span-3" : ""}
-              >
+        <ChessboardReveal>
+          {[STATS.slice(0, 3), STATS.slice(3, 4), STATS.slice(4)].map((row, rowIndex) => (
+            <ChessboardStatsRow
+              key={rowIndex}
+              index={rowIndex}
+              className="grid w-full grid-cols-1 gap-0 sm:grid-cols-3"
+            >
+              {row.map((stat) => (
                 <ImpactStatCard
+                  key={stat.value}
                   value={stat.value}
                   label={stat.label}
                   variant={stat.wide ? "wide" : stat.variant}
-                  className="h-full"
+                  className={stat.wide ? "sm:col-span-3" : ""}
                 />
-              </StaggerItem>
-            ))}
-          </Stagger>
-        </div>
+              ))}
+            </ChessboardStatsRow>
+          ))}
+        </ChessboardReveal>
       </div>
     </section>
   );

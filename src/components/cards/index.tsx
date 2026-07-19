@@ -186,7 +186,7 @@ const impactVariants = {
   brown: "bg-brown-dark text-white",
   cream: "bg-cream text-[#282828]",
   orange: "bg-brown-accent text-white",
-  wide: "bg-brown-accent text-white col-span-full md:col-span-2",
+  wide: "bg-brown-accent text-white ",
 };
 
 export function ImpactStatCard({
